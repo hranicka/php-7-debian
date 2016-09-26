@@ -126,6 +126,11 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 	APCu
 
 
+## Shortcuts
+
+	sudo ln -s /usr/local/php7/bin/php /usr/bin/php7
+
+
 ## Installing Extensions
 
 Please note that you need to restart `php7-fpm` to activate the extension.
