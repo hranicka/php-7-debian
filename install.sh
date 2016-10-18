@@ -8,6 +8,9 @@ mkdir /usr/local/php7/etc/conf.d
 ln -s /usr/local/php7/sbin/php-fpm /usr/local/php7/sbin/php7-fpm
 
 # Install PECL
+/usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf clear-cache
+/usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf update-channels
+
 /usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf install apcu-5.1.6
 /usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf install ssh2-1.0
 
