@@ -151,6 +151,7 @@ Please note that you need to restart `php7-fpm` to activate the extension.
 
 ## Credits
 
-- Created by [Kaspars Dambis](http://kaspars.net)
-- Contributors: [Piotr Plenik](https://github.com/jupeter)
+- Created by [Jaroslav Hranička](https://hranicka.cz)
+- Based on [Kaspars Dambis](https://github.com/kasparsd/php-7-debian)
+- Based on [Piotr Plenik](https://github.com/jupeter)
 - Based on [`php7.sh`](https://gist.github.com/tvlooy/953a7c0658e70b573ab4) by [Tom Van Looy](http://www.intracto.com/nl/blog/running-symfony2-on-php7)
