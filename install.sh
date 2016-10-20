@@ -21,7 +21,7 @@ cp conf/php-fpm.conf /usr/local/php7/etc/php-fpm.conf
 cp conf/modules.ini /usr/local/php7/etc/conf.d/modules.ini
 
 # Add the init script
-cp conf/php7-fpm.init /etc/init.d/php7-fpm
+cp conf/php-fpm.init /etc/init.d/php7-fpm
 chmod +x /etc/init.d/php7-fpm
 update-rc.d php7-fpm defaults
 
