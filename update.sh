@@ -1,4 +1,4 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
-service php7-fpm restart
+service php71-fpm restart

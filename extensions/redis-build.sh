@@ -11,8 +11,8 @@ cd phpredis
 git checkout php7
 git pull
 
-/usr/local/php7/bin/phpize
-./configure --with-php-config=/usr/local/php7/bin/php-config
+/usr/local/php71/bin/phpize
+./configure --with-php-config=/usr/local/php71/bin/php-config
 
 make
 sudo make install
