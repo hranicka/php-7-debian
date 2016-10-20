@@ -8,7 +8,6 @@ These are a set of bash scripts for building and running PHP 7 (CLI and FPM) on 
 
 Please note that these are very simple scripts that don't implement error checking or process validation.
 
-
 ## Usage
 
 	cd /tmp
@@ -30,11 +29,11 @@ The PHP-FPM can be operated using the `php7-fpm` init script:
 
 	Usage: /etc/init.d/php7-fpm {start|stop|status|restart|reload|force-reload}
 
-while the FPM socket is available at
+While the FPM socket is available at:
 
 	127.0.0.1:9007
 
-and PHP CLI:
+And PHP CLI:
 
 	/usr/local/php7/bin/php -v
 	PHP 7.0.12 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
@@ -42,6 +41,10 @@ and PHP CLI:
 	Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
 		with Zend OPcache v7.0.12, Copyright (c) 1999-2016, by Zend Technologies
 
+Executables are located at:
+
+	/usr/local/php7/bin/php
+	/usr/bin/php7
 
 ## Configuration files
 
@@ -55,7 +58,6 @@ All PHP configuration files are stored under `/usr/local/php7`:
 while the Debian init script is added to:
 
 	/etc/init.d/php7-fpm
-
 
 ## Extensions
 
@@ -125,12 +127,6 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 	[PECL]
 	APCu
 	SSH2
-
-
-## Shortcuts
-
-	sudo ln -s /usr/local/php7/bin/php /usr/bin/php7
-
 
 ## Installing Extensions
 

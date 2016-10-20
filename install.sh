@@ -26,3 +26,6 @@ chmod +x /etc/init.d/php7-fpm
 update-rc.d php7-fpm defaults
 
 service php7-fpm start
+
+# Add a shortcut
+sudo ln -s /usr/local/php7/bin/php /usr/bin/php7
