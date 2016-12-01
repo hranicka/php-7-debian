@@ -12,7 +12,6 @@ ln -s /usr/local/php7/sbin/php-fpm /usr/local/php7/sbin/php7-fpm
 /usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf update-channels
 
 /usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf install apcu-5.1.6
-/usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf install ssh2-1.0
 
 # Add config files
 cp php-src/php.ini-production /usr/local/php7/lib/php.ini
