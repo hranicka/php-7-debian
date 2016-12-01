@@ -115,27 +115,22 @@ Note that most of the third-party PHP extensions are [not yet compatible with PH
 
 	[Zend Modules]
 	Zend OPcache
-	
-	[PECL]
-	APCu
 
 ## Installing Extensions
 
-Please note that you need to restart `php7-fpm` to activate the extension.
+There are some extensions in `extension` directory.
 
-### Install the Memcached Extension
+You can install them simply with given scripts.
+
+For example Memcached extension:
 
 	cd php-7-debian/extensions
 	./memcached-build.sh
 	sudo ./memcached-install.sh
 
-### Install the Imagick Extension
+After installation there is need to restart some services (fpm).
 
-	cd php-7-debian/extensions
-	./imagick-build.sh
-	sudo ./imagick-install.sh
-
-### After installation
+You can done it simply with another script:
 
 	cd ..
 	sudo ./update.sh
