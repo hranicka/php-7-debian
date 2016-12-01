@@ -127,13 +127,13 @@ Please note that you need to restart `php7-fpm` to activate the extension.
 
 	cd php-7-debian/extensions
 	./memcached-build.sh
-	./memcached-install.sh
+	sudo ./memcached-install.sh
 
 ### Install the Imagick Extension
 
 	cd php-7-debian/extensions
 	./imagick-build.sh
-	./imagick-install.sh
+	sudo ./imagick-install.sh
 
 ### After installation
 
