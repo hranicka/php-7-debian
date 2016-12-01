@@ -11,8 +11,8 @@ cd pecl-networking-ssh2
 git checkout master
 git pull
 
-/usr/local/php7/bin/phpize
-./configure --with-php-config=/usr/local/php7/bin/php-config
+/usr/local/php70/bin/phpize
+./configure --with-php-config=/usr/local/php70/bin/php-config
 
 make
 sudo make install
