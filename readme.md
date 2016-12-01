@@ -33,15 +33,7 @@ While the FPM socket is available at:
 
 	127.0.0.1:9007
 
-And PHP CLI:
-
-	/usr/local/php7/bin/php -v
-	PHP 7.0.12 (cli) (built: Jun 23 2016 20:58:06) ( NTS )
-	Copyright (c) 1997-2016 The PHP Group
-	Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
-		with Zend OPcache v7.0.12, Copyright (c) 1999-2016, by Zend Technologies
-
-Executables are located at:
+Executables (also CLI) are located at:
 
 	/usr/local/php7/bin/php
 	/usr/bin/php7
