@@ -11,8 +11,6 @@ ln -s /usr/local/php7/sbin/php-fpm /usr/local/php7/sbin/php7-fpm
 /usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf clear-cache
 /usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf update-channels
 
-/usr/local/php7/bin/pecl -C /usr/local/php7/etc/pear.conf install apcu-5.1.6
-
 # Add config files
 cp php-src/php.ini-production /usr/local/php7/lib/php.ini
 cp conf/www.conf /usr/local/php7/etc/php-fpm.d/www.conf
