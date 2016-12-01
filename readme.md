@@ -4,7 +4,7 @@ These are a set of bash scripts for building and running PHP 7 (CLI and FPM) on 
 
 - `build.sh` installs the necessary build dependencies and the latest development version of PHP with CLI and FPM server APIs (SAPI) from the latest PHP 7 branch of https://github.com/php/php-src
 
-- `install.sh` sets up PHP-FPM by moving configuration files into their correct locations in `/usr/local/php7` and enables the `php7-fpm` service and adds it to the startup sequence.
+- `install.sh` sets up PHP-FPM by moving configuration files into their correct locations in `/usr/local/php70` and enables the `php70-fpm` service and adds it to the startup sequence.
 
 Please note that these are very simple scripts that don't implement error checking or process validation.
 
@@ -13,6 +13,8 @@ Please note that these are very simple scripts that don't implement error checki
 	cd /tmp
 	git clone https://github.com/hranicka/php-7-debian.git
 	cd php-7-debian
+	git checkout php70
+	git pull
 	./build.sh
 
 ### Install
@@ -25,37 +27,37 @@ Please note that these are very simple scripts that don't implement error checki
 
 ## About installation
 
-The PHP-FPM can be operated using the `php7-fpm` init script:
+The PHP-FPM can be operated using the `php70-fpm` init script:
 
-	Usage: /etc/init.d/php7-fpm {start|stop|status|restart|reload|force-reload}
+	Usage: /etc/init.d/php70-fpm {start|stop|status|restart|reload|force-reload}
 
 While the FPM socket is available at:
 
-	127.0.0.1:9007
+	127.0.0.1:9070
 
 Executables (also CLI) are located at:
 
-	/usr/local/php7/bin/php
-	/usr/bin/php7
+	/usr/local/php70/bin/php
+	/usr/bin/php70
 
 ## Configuration files
 
-All PHP configuration files are stored under `/usr/local/php7`:
+All PHP configuration files are stored under `/usr/local/php70`:
 
-	/usr/local/php7/lib/php.ini
-	/usr/local/php7/etc/php-fpm.conf
-	/usr/local/php7/etc/php-fpm.d/www.conf
-	/usr/local/php7/etc/conf.d/modules.ini
+	/usr/local/php70/lib/php.ini
+	/usr/local/php70/etc/php-fpm.conf
+	/usr/local/php70/etc/php-fpm.d/www.conf
+	/usr/local/php70/etc/conf.d/modules.ini
 
 while the Debian init script is added to:
 
-	/etc/init.d/php7-fpm
+	/etc/init.d/php70-fpm
 
 ## Extensions
 
 Note that most of the third-party PHP extensions are [not yet compatible with PHP 7](https://github.com/gophp7/gophp7-ext/wiki/extensions-catalog) and [GoPHP7-ext](http://gophp7.org/) (also on [GitHub](https://github.com/gophp7/gophp7-ext)) is a project to help do that. Here is a list of PHP modules that are enabled by default in this build:
 
-	$ /usr/local/php7/bin/php -m
+	$ /usr/local/php70/bin/php -m
 	[PHP Modules]
 	bcmath
 	bz2
