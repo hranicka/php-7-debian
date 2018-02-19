@@ -1,6 +1,12 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
+# Use all cores for the build process
+CORE_COUNT=$(cat /proc/cpuinfo | grep -c processor)
+
+# Allow JOB_COUNT environment variable to override the job count
+JOB_COUNT=${JOB_COUNT:-$CORE_COUNT}
+
 # Dependencies
 sudo apt-get update
 sudo apt-get install -y \
@@ -8,6 +14,7 @@ sudo apt-get install -y \
     pkg-config \
     git-core \
     autoconf \
+    bison \
     libxml2-dev \
     libbz2-dev \
     libmcrypt-dev \
@@ -28,11 +35,12 @@ sudo mkdir /usr/local/php7
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-7.2.2
-git pull
+git fetch --tags --prune
+git checkout tags/php-7.2.2
 ./buildconf --force
 
 CONFIGURE_STRING="--prefix=/usr/local/php7 \
+                  --enable-huge-code-pages \
                   --with-config-file-scan-dir=/usr/local/php7/etc/conf.d \
                   --with-pear \
                   --enable-bcmath \
@@ -71,7 +79,7 @@ CONFIGURE_STRING="--prefix=/usr/local/php7 \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
 
-./configure $CONFIGURE_STRING
+./configure "$CONFIGURE_STRING"
 
-make
+make -j "$JOB_COUNT"
 sudo make install
