@@ -20,7 +20,6 @@ sudo apt-get install -y \
     libmcrypt-dev \
     libicu-dev \
     libssl-dev \
-    libcurl4-openssl-dev \
     libcurl4-gnutls-dev \
     libltdl-dev \
     libjpeg-dev \
@@ -28,10 +27,7 @@ sudo apt-get install -y \
     libpspell-dev \
     libreadline-dev
 
-# curl fix (https://github.com/phpbrew/phpbrew/issues/861)
-ln -s /usr/include/x86_64-linux-gnu/curl /usr/local/include/curl
-
-sudo mkdir /usr/local/php71
+sudo mkdir /usr/local/php7
 
 git clone https://github.com/php/php-src.git
 cd php-src
@@ -54,11 +50,8 @@ CONFIGURE_STRING="--prefix=/usr/local/php71 \
                   --with-gd \
                   --with-jpeg-dir \
                   --enable-mbstring \
-                  --with-mcrypt \
                   --with-mhash \
                   --enable-mysqlnd \
-                  --with-mysql=mysqlnd \
-                  --with-mysql-sock=/var/run/mysqld/mysqld.sock \
                   --with-mysqli=mysqlnd \
                   --with-pdo-mysql=mysqlnd \
                   --with-openssl \
@@ -79,7 +72,7 @@ CONFIGURE_STRING="--prefix=/usr/local/php71 \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
 
-./configure "$CONFIGURE_STRING"
+./configure $CONFIGURE_STRING
 
 make -j "$JOB_COUNT"
 sudo make install
