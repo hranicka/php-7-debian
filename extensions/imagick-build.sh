@@ -12,8 +12,8 @@ cd imagick
 git checkout phpseven
 git pull
 
-/usr/local/php71/bin/phpize
-./configure --with-php-config=/usr/local/php71/bin/php-config
+/usr/local/php72/bin/phpize
+./configure --with-php-config=/usr/local/php72/bin/php-config
 
 make
 sudo make install

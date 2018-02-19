@@ -21,16 +21,16 @@ sudo apt-get install -y \
     libpspell-dev \
     libreadline-dev
 
-sudo mkdir /usr/local/php71
+sudo mkdir /usr/local/php72
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-7.1.14
+git checkout PHP-7.2.2
 git pull
 ./buildconf --force
 
-CONFIGURE_STRING="--prefix=/usr/local/php71 \
-                  --with-config-file-scan-dir=/usr/local/php71/etc/conf.d \
+CONFIGURE_STRING="--prefix=/usr/local/php72 \
+                  --with-config-file-scan-dir=/usr/local/php72/etc/conf.d \
                   --with-pear \
                   --enable-bcmath \
                   --with-bz2 \

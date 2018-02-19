@@ -1,25 +1,25 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          php71-fpm
+# Provides:          php72-fpm
 # Required-Start:    $remote_fs $network
 # Required-Stop:     $remote_fs $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: starts php71-fpm
+# Short-Description: starts php72-fpm
 # Description:       Starts The PHP FastCGI Process Manager Daemon
 ### END INIT INFO
 
 # Author: Ondrej Sury <ondrej@debian.org>
 # Adjusted for PHP7 by Kaspars Dambis <hi@kaspars.net>
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/php71/sbin
+PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/php72/sbin
 DESC="PHP7 FastCGI Process Manager"
-NAME=php71-fpm
-DAEMON=/usr/local/php71/sbin/$NAME
-CONFFILE=/usr/local/php71/etc/php-fpm.conf
+NAME=php72-fpm
+DAEMON=/usr/local/php72/sbin/$NAME
+CONFFILE=/usr/local/php72/etc/php-fpm.conf
 DAEMON_ARGS="--daemonize --fpm-config $CONFFILE"
 CONF_PIDFILE=$(sed -n 's/^pid[ =]*//p' $CONFFILE)
-PIDFILE=${CONF_PIDFILE:-/var/run/php71-fpm.pid}
+PIDFILE=${CONF_PIDFILE:-/var/run/php72-fpm.pid}
 TIMEOUT=30
 SCRIPTNAME=/etc/init.d/$NAME
 
