@@ -20,7 +20,6 @@ sudo apt-get install -y \
     libmcrypt-dev \
     libicu-dev \
     libssl-dev \
-    libcurl4-openssl-dev \
     libcurl4-gnutls-dev \
     libltdl-dev \
     libjpeg-dev \
