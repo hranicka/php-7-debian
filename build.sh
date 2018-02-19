@@ -25,7 +25,7 @@ sudo mkdir /usr/local/php70
 
 git clone https://github.com/php/php-src.git
 cd php-src
-git checkout PHP-7.0.22
+git checkout PHP-7.0.27
 git pull
 ./buildconf --force
 
