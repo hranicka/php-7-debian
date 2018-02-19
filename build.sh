@@ -1,6 +1,12 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
+# Use all cores for the build process
+CORE_COUNT=$(cat /proc/cpuinfo | grep -c processor)
+
+# Allow JOB_COUNT environment variable to override the job count
+JOB_COUNT=${JOB_COUNT:-$CORE_COUNT}
+
 # Dependencies
 sudo apt-get update
 sudo apt-get install -y \
@@ -15,11 +21,15 @@ sudo apt-get install -y \
     libicu-dev \
     libssl-dev \
     libcurl4-openssl-dev \
+    libcurl4-gnutls-dev \
     libltdl-dev \
     libjpeg-dev \
     libpng-dev \
     libpspell-dev \
     libreadline-dev
+
+# curl fix (https://github.com/phpbrew/phpbrew/issues/861)
+ln -s /usr/include/x86_64-linux-gnu/curl /usr/local/include/curl
 
 sudo mkdir /usr/local/php70
 
@@ -30,6 +40,7 @@ git pull
 ./buildconf --force
 
 CONFIGURE_STRING="--prefix=/usr/local/php70 \
+                  --enable-huge-code-pages \
                   --with-config-file-scan-dir=/usr/local/php70/etc/conf.d \
                   --with-pear \
                   --enable-bcmath \
@@ -68,7 +79,7 @@ CONFIGURE_STRING="--prefix=/usr/local/php70 \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
 
-./configure $CONFIGURE_STRING
+./configure "$CONFIGURE_STRING"
 
-make
+make -j "$JOB_COUNT"
 sudo make install
