@@ -8,18 +8,21 @@ sudo apt-get install -y \
     pkg-config \
     git-core \
     autoconf \
-    bison \
     libxml2-dev \
     libbz2-dev \
     libmcrypt-dev \
     libicu-dev \
     libssl-dev \
     libcurl4-openssl-dev \
+    libcurl4-gnutls-dev \
     libltdl-dev \
     libjpeg-dev \
     libpng-dev \
     libpspell-dev \
     libreadline-dev
+
+# curl fix (https://github.com/phpbrew/phpbrew/issues/861)
+ln -s /usr/include/x86_64-linux-gnu/curl /usr/local/include/curl
 
 sudo mkdir /usr/local/php7
 
