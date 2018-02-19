@@ -27,9 +27,6 @@ sudo apt-get install -y \
     libpspell-dev \
     libreadline-dev
 
-# curl fix (https://github.com/phpbrew/phpbrew/issues/861)
-ln -s /usr/include/x86_64-linux-gnu/curl /usr/local/include/curl
-
 sudo mkdir /usr/local/php7
 
 git clone https://github.com/php/php-src.git
@@ -75,7 +72,7 @@ CONFIGURE_STRING="--prefix=/usr/local/php7 \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
 
-./configure "$CONFIGURE_STRING"
+./configure $CONFIGURE_STRING
 
 make -j "$JOB_COUNT"
 sudo make install
